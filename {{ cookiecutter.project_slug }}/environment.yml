@@ -1,0 +1,56 @@
+# conda env create --file environment.yml
+# mamba env create --file environment.yml
+name: {{ cookiecutter.project_slug }}
+dependencies:
+  {% if cookiecutter.project_packages == "Chemprop" -%}
+  - hyperopt
+  - ipykernel
+  - matplotlib
+  - numpy=1.21 # Required for scaffold split float error in chemprop
+  - pandas
+  - pyprojroot
+  - python=3.9
+  - rdkit
+  - seaborn
+  - tqdm
+  - pip
+  - pip:
+    - chemprop
+    - git+https://github.com/bp-kelley/descriptastorus
+  {% endif -%}
+  {% if cookiecutter.project_packages == "Pycaret" -%}
+  - fastapi
+  - ipykernel
+  - matplotlib
+  - numpy
+  - pandas
+  - pyprojroot
+  - python=3.9
+  - rdkit
+  - seaborn
+  - tqdm
+  - uvicorn
+  - pip
+  - pip:
+    - explainerdashboard
+    - hyperopt
+    - scikit-optimize
+    - --pre
+    - pycaret
+  {% endif -%}
+  {% if cookiecutter.project_packages == "Generic" -%}
+  - ipykernel
+  - lightgbm
+  - matplotlib
+  - numpy
+  - pandas
+  - plotly
+  - pyprojroot
+  - python=3.10
+  - rdkit
+  - scikit-learn
+  - scipy
+  - seaborn
+  - tqdm
+  {% endif -%}
+  
