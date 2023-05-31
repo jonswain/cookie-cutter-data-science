@@ -22,7 +22,7 @@ conda install -c conda-forge cookiecutter
 In a folder where you want your project generated:
 
 ```bash
-cookiecutter ssh://git@gitlab.vernalis.com:2289/j.swain/cookie-cutter-data-science.git
+cookiecutter cookiecutter https://github.com/jonswain/cookie-cutter-data-science.git
 ```
 
 If you have previously downloaded the template, you can use:
